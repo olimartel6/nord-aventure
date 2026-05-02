@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nord Aventure — Équipement de pêche pour le Nord québécois</title>
+  <meta name="description" content="Équipement de pêche premium curé pour les pêcheurs sportifs du Québec. Côte-Nord, Saguenay, Lac-Saint-Jean. Cannes, moulinets, leurres, waders, accessoires d'expédition." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Big+Shoulders+Display:wght@600;700;800&display=swap" />
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header" data-header>
+  <div class="site-header__inner">
+    <a href="index.html" class="brand" aria-label="Nord Aventure, accueil">
+      <span class="brand__mark" aria-hidden="true">N</span>
+      <span>Nord Aventure</span>
+    </a>
+    <nav class="site-nav" data-nav aria-label="Navigation principale">
+      <ul class="site-nav__list">
+        <li><a href="produits.html">Boutique</a></li>
+        <li><a href="#mission">À propos</a></li>
+        <li><a href="#mission">Notre mission</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="site-nav__icons">
+        <button class="icon-btn" aria-label="Recherche">
+          <i data-lucide="search"></i>
+        </button>
+        <a class="icon-btn" href="panier.html" aria-label="Panier">
+          <i data-lucide="shopping-bag"></i>
+          <span class="cart-badge" data-cart-badge aria-live="polite">0</span>
+        </a>
+        <button class="icon-btn nav-toggle" data-nav-toggle aria-label="Menu" aria-expanded="false">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__bg">
+    <img src="https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=2400&q=80" alt="Lac québécois au crépuscule, brume sur les montagnes" />
+  </div>
+  <div class="hero__overlay" aria-hidden="true"></div>
+  <div class="hero__inner">
+    <span class="eyebrow" data-reveal>Équipement curé pour pêcheurs sérieux</span>
+    <h1 class="hero__title" data-reveal data-reveal-delay="1">Conçu pour le Nord</h1>
+    <p class="hero__sub" data-reveal data-reveal-delay="2">
+      Équipement de pêche conçu pour le Nord québécois. Sans compromis. Cannes, moulinets, leurres, waders et accessoires d'expédition — tout ce qui résiste à 4 jours en pourvoirie ou à une traverse de la Moisie.
+    </p>
+    <div class="hero__ctas" data-reveal data-reveal-delay="3">
+      <a href="produits.html" class="btn btn--primary btn--lg">
+        Voir la boutique
+        <i data-lucide="arrow-right"></i>
+      </a>
+      <a href="#mission" class="btn btn--ghost btn--lg">Notre mission</a>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENT VISÉ -->
+<section class="section" id="audience">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Pour qui on existe</span>
+      <h2>Trois pêcheurs. Un standard.</h2>
+      <p>On ne vend pas à tout le monde. Nord Aventure existe pour les pêcheurs québécois qui ne tolèrent plus l'équipement de masse — et qui savent reconnaître la différence sur l'eau.</p>
+    </div>
+
+    <div class="audience-grid">
+      <article class="audience-card" data-reveal data-reveal-delay="1">
+        <div class="audience-card__media">
+          <img src="https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?w=900&q=80" alt="Pêcheur sur une rivière de la Côte-Nord au lever du jour" />
+        </div>
+        <div class="audience-card__body">
+          <span class="eyebrow">Le pêcheur de fin de semaine</span>
+          <h3>Côte-Nord, du vendredi au dimanche</h3>
+          <p>Vous roulez 6 heures pour atteindre votre rivière. Vous n'avez pas le temps de réparer un porte-moulinet brisé samedi matin. Votre équipement doit fonctionner du premier au dernier lancer, point.</p>
+        </div>
+      </article>
+
+      <article class="audience-card" data-reveal data-reveal-delay="2">
+        <div class="audience-card__media">
+          <img src="https://images.unsplash.com/photo-1493558103817-58b2924bce98?w=900&q=80" alt="Hydravion sur un lac isolé, expédition de pêche en pourvoirie" />
+        </div>
+        <div class="audience-card__body">
+          <span class="eyebrow">L'expéditeur en pourvoirie</span>
+          <h3>Quatre jours, 23 kilos, zéro tolérance</h3>
+          <p>L'hydravion vous dépose. Aucun magasin à 200 km à la ronde. Chaque gramme dans votre sac est compté, chaque pièce doit être absolument fiable. Vous achetez peu, mais vous achetez bien.</p>
+        </div>
+      </article>
+
+      <article class="audience-card" data-reveal data-reveal-delay="3">
+        <div class="audience-card__media">
+          <img src="https://images.unsplash.com/photo-1542338347-4fff3276af78?w=900&q=80" alt="Pêcheur à la mouche dans une rivière à saumon du Saguenay" />
+        </div>
+        <div class="audience-card__body">
+          <span class="eyebrow">Le mouche puriste du Saguenay</span>
+          <h3>Saumon atlantique, soie WF8, rien d'autre</h3>
+          <p>Vous pêchez la Bonaventure depuis quinze ans. Vous connaissez la différence entre une vraie canne mouche et un produit d'appel à grande surface. Le compromis n'est pas une option.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PRODUCTS -->
+<section class="section section--alt" id="boutique">
+  <div class="container">
+    <div class="section-head section-head--left" data-reveal>
+      <span class="eyebrow">Sélection</span>
+      <h2>Notre sélection actuelle</h2>
+      <p>Quatre pièces qui définissent ce qu'on fait. Cliquez sur chacune pour les détails complets.</p>
+    </div>
+
+    <div class="product-grid" id="featured-products" data-reveal></div>
+
+    <div class="center mt-48" data-reveal>
+      <a href="produits.html" class="btn btn--ghost">
+        Voir les 16 produits
+        <i data-lucide="arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="section" id="mission">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Notre mission</span>
+      <h2>Trois choses, faites sérieusement</h2>
+      <p>On ne fait pas tout. On fait peu. Et on le fait au standard que vous attendez d'un fournisseur d'équipement québécois indépendant.</p>
+    </div>
+
+    <div class="mission-grid">
+      <div class="mission-card" data-reveal data-reveal-delay="1">
+        <div class="mission-card__icon"><i data-lucide="shield-check"></i></div>
+        <h3>Curation rigoureuse</h3>
+        <p>Chaque produit est testé personnellement par notre équipe avant d'entrer au catalogue. Si on ne l'utilise pas nous-mêmes en saison, on ne le vend pas. Pas de garniture, pas de compromis pour gonfler la boutique.</p>
+      </div>
+
+      <div class="mission-card" data-reveal data-reveal-delay="2">
+        <div class="mission-card__icon"><i data-lucide="anchor"></i></div>
+        <h3>Testé en conditions extrêmes</h3>
+        <p>Côte-Nord en mai à 4 °C, ouananiche du Lac-Saint-Jean en juillet, saumon atlantique sur la Moisie. Avant qu'un produit arrive sur la boutique, il a passé au moins une saison complète sur le terrain dans nos mains.</p>
+      </div>
+
+      <div class="mission-card" data-reveal data-reveal-delay="3">
+        <div class="mission-card__icon"><i data-lucide="users"></i></div>
+        <h3>Soutien d'experts québécois</h3>
+        <p>Quand vous appelez, vous parlez à un pêcheur qui a sorti des poissons cette saison. Pas un agent de centre d'appels. On répond en français, on connaît les pourvoiries, et on conseille selon votre rivière, pas selon nos stocks.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<section class="trust-strip">
+  <div class="container">
+    <div class="trust-grid">
+      <div data-reveal>
+        <div class="trust-num"><span data-counter="12">0</span></div>
+        <div class="trust-label">Années sur le terrain</div>
+      </div>
+      <div data-reveal data-reveal-delay="1">
+        <div class="trust-num"><span data-counter="47">0</span></div>
+        <div class="trust-label">Expéditions terrain documentées</div>
+      </div>
+      <div data-reveal data-reveal-delay="2">
+        <div class="trust-num"><span data-counter="163">0</span></div>
+        <div class="trust-label">Produits curés au catalogue</div>
+      </div>
+      <div data-reveal data-reveal-delay="3">
+        <div class="trust-num"><span data-counter="4200">0</span></div>
+        <div class="trust-label">Pêcheurs servis depuis 2014</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Du terrain</span>
+      <h2>Ce que disent nos pêcheurs</h2>
+    </div>
+
+    <div class="testimonial-grid">
+      <article class="testimonial" data-reveal data-reveal-delay="1">
+        <p class="testimonial__quote">Trois saisons sur le Fjord Wader Pro, zéro infiltration. Mon ancien wader haut de gamme d'une grande chaîne avait tenu une saison. Le calcul est vite fait.</p>
+        <div class="testimonial__author">
+          <div class="testimonial__avatar"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80" alt="Portrait de Marc-André" /></div>
+          <div>
+            <div class="testimonial__name">Marc-André G.</div>
+            <div class="testimonial__city">Sept-Îles</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="testimonial" data-reveal data-reveal-delay="2">
+        <p class="testimonial__quote">J'ai appelé pour me faire conseiller une canne pour la ouananiche. La personne au téléphone connaissait mes lacs. C'est rare. J'ai acheté l'Arctic Spin, c'est exactement ce qu'il me fallait.</p>
+        <div class="testimonial__author">
+          <div class="testimonial__avatar"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=80" alt="Portrait d'Émilie" /></div>
+          <div>
+            <div class="testimonial__name">Émilie T.</div>
+            <div class="testimonial__city">Chicoutimi</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="testimonial" data-reveal data-reveal-delay="3">
+        <p class="testimonial__quote">Le pack streamers Côte-Nord, c'est du sérieux. Six mouches, pas de remplissage, montage solide. Mon guide en pourvoirie m'a demandé où je les avais trouvées.</p>
+        <div class="testimonial__author">
+          <div class="testimonial__avatar"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" alt="Portrait de François" /></div>
+          <div>
+            <div class="testimonial__name">François L.</div>
+            <div class="testimonial__city">Baie-Comeau</div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="section section--tight" id="contact">
+  <div class="container">
+    <div class="newsletter-banner" data-reveal>
+      <span class="eyebrow">Infolettre</span>
+      <h2>Saison de pêche 2026</h2>
+      <p>Une infolettre par mois. Nouveaux produits, conseils de saison, dates d'ouverture des rivières à saumon. Aucun spam, aucun cross-sell, jamais.</p>
+      <form class="newsletter-form" data-newsletter>
+        <input type="email" required placeholder="votre@courriel.com" aria-label="Adresse courriel" />
+        <button type="submit" class="btn btn--primary">S'abonner</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a href="index.html" class="brand" style="margin-bottom: 16px;">
+          <span class="brand__mark" aria-hidden="true">N</span>
+          <span>Nord Aventure</span>
+        </a>
+        <p>Équipement de pêche conçu pour le Nord québécois. Sans compromis. Curation indépendante depuis 2014.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Boutique</h4>
+        <ul>
+          <li><a href="produits.html">Cannes</a></li>
+          <li><a href="produits.html">Moulinets</a></li>
+          <li><a href="produits.html">Leurres et mouches</a></li>
+          <li><a href="produits.html">Vêtements et waders</a></li>
+          <li><a href="produits.html">Bagagerie</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Service client</h4>
+        <ul>
+          <li><a href="#contact">Nous joindre</a></li>
+          <li><a href="#contact">Livraison</a></li>
+          <li><a href="#contact">Retours</a></li>
+          <li><a href="#contact">Garantie</a></li>
+          <li><a href="#contact">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Infolettre</h4>
+        <p>Une fois par mois. Pas de spam.</p>
+        <form class="footer-newsletter" data-newsletter>
+          <input type="email" required placeholder="Courriel" aria-label="Courriel" />
+          <button type="submit" class="btn btn--primary btn--sm">OK</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Nord Aventure — Conçu au Québec. Testé dans le Nord.</span>
+      <span>Boutique fictive — démo</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Lucide icons CDN -->
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<!-- Scripts -->
+<script src="scripts/products.js"></script>
+<script src="scripts/cart.js"></script>
+<script src="scripts/main.js"></script>
+
+<script>
+  // Render featured products (4 first)
+  (function renderFeatured() {
+    const container = document.getElementById('featured-products');
+    if (!container || typeof PRODUCTS === 'undefined') return;
+    const featured = PRODUCTS.slice(0, 4);
+    container.innerHTML = featured.map(p => `
+      <a href="produit.html?id=${p.id}" class="product-card">
+        <div class="product-card__media">
+          <img src="${p.image}" alt="${p.name}" loading="lazy" />
+          <span class="product-card__add">Voir le produit</span>
+        </div>
+        <div class="product-card__body">
+          <span class="product-card__eyebrow">${p.eyebrow}</span>
+          <div class="product-card__name">${p.name}</div>
+          <p class="product-card__pitch">${p.pitch}</p>
+          <span class="product-card__price">${window.NACart.formatCAD(p.price)}</span>
+        </div>
+      </a>
+    `).join('');
+  })();
+</script>
+
+</body>
+</html>

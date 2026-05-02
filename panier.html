@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panier — Nord Aventure</title>
+  <meta name="description" content="Votre panier d'équipement de pêche Nord Aventure." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Big+Shoulders+Display:wght@600;700;800&display=swap" />
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+
+<header class="site-header" data-header>
+  <div class="site-header__inner">
+    <a href="index.html" class="brand" aria-label="Nord Aventure, accueil">
+      <span class="brand__mark" aria-hidden="true">N</span>
+      <span>Nord Aventure</span>
+    </a>
+    <nav class="site-nav" data-nav aria-label="Navigation principale">
+      <ul class="site-nav__list">
+        <li><a href="produits.html">Boutique</a></li>
+        <li><a href="index.html#mission">À propos</a></li>
+        <li><a href="index.html#mission">Notre mission</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <div class="site-nav__icons">
+        <button class="icon-btn" aria-label="Recherche"><i data-lucide="search"></i></button>
+        <a class="icon-btn" href="panier.html" aria-label="Panier">
+          <i data-lucide="shopping-bag"></i>
+          <span class="cart-badge" data-cart-badge>0</span>
+        </a>
+        <button class="icon-btn nav-toggle" data-nav-toggle aria-label="Menu" aria-expanded="false">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <div class="page-header" style="padding-left: 0; padding-right: 0;">
+      <div class="breadcrumb">
+        <a href="index.html">Accueil</a><span>›</span>Panier
+      </div>
+      <h1>Votre panier</h1>
+    </div>
+
+    <div id="cart-root"></div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a href="index.html" class="brand" style="margin-bottom: 16px;">
+          <span class="brand__mark" aria-hidden="true">N</span>
+          <span>Nord Aventure</span>
+        </a>
+        <p>Équipement de pêche conçu pour le Nord québécois. Sans compromis.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Boutique</h4>
+        <ul>
+          <li><a href="produits.html">Cannes</a></li>
+          <li><a href="produits.html">Moulinets</a></li>
+          <li><a href="produits.html">Leurres et mouches</a></li>
+          <li><a href="produits.html">Vêtements et waders</a></li>
+          <li><a href="produits.html">Bagagerie</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Service client</h4>
+        <ul>
+          <li><a href="index.html#contact">Nous joindre</a></li>
+          <li><a href="index.html#contact">Livraison</a></li>
+          <li><a href="index.html#contact">Retours</a></li>
+          <li><a href="index.html#contact">Garantie</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Infolettre</h4>
+        <p>Une fois par mois.</p>
+        <form class="footer-newsletter" data-newsletter>
+          <input type="email" required placeholder="Courriel" aria-label="Courriel" />
+          <button type="submit" class="btn btn--primary btn--sm">OK</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Nord Aventure — Conçu au Québec. Testé dans le Nord.</span>
+      <span>Boutique fictive — démo</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="scripts/products.js"></script>
+<script src="scripts/cart.js"></script>
+<script src="scripts/main.js"></script>
+
+<script>
+  const TPS_RATE = 0.05;
+  const TVQ_RATE = 0.09975;
+  const FREE_SHIP_THRESHOLD = 150;
+  const SHIP_COST = 18;
+
+  function renderCart() {
+    const root = document.getElementById('cart-root');
+    const cart = window.NACart.getCart();
+
+    if (!cart.length) {
+      root.innerHTML = `
+        <div class="cart-empty" data-reveal>
+          <div class="cart-empty__icon"><i data-lucide="shopping-bag"></i></div>
+          <h2>Votre panier est vide</h2>
+          <p>Vous n'avez encore rien sélectionné. Allez voir nos 16 produits curés.</p>
+          <a href="produits.html" class="btn btn--primary btn--lg">
+            Voir la boutique
+            <i data-lucide="arrow-right"></i>
+          </a>
+        </div>
+      `;
+      if (window.lucide) window.lucide.createIcons();
+      return;
+    }
+
+    const items = cart.map(item => {
+      const p = PRODUCTS.find(x => x.id === item.id);
+      return p ? { ...p, qty: item.qty } : null;
+    }).filter(Boolean);
+
+    const subtotal = items.reduce((sum, p) => sum + p.price * p.qty, 0);
+    const shipping = subtotal >= FREE_SHIP_THRESHOLD ? 0 : SHIP_COST;
+    const tps = subtotal * TPS_RATE;
+    const tvq = subtotal * TVQ_RATE;
+    const total = subtotal + shipping + tps + tvq;
+
+    root.innerHTML = `
+      <div class="cart-layout">
+        <div class="cart-list">
+          ${items.map(p => `
+            <div class="cart-row" style="position: relative;">
+              <div class="cart-row__img">
+                <img src="${p.image}" alt="${p.name}" />
+              </div>
+              <div class="cart-row__info">
+                <span class="eyebrow">${p.eyebrow}</span>
+                <h4><a href="produit.html?id=${p.id}">${p.name}</a></h4>
+                <div class="cart-row__price">${window.NACart.formatCAD(p.price)} l'unité</div>
+              </div>
+              <div class="cart-row__qty">
+                <div class="qty-selector">
+                  <button type="button" data-qty-minus="${p.id}" aria-label="Diminuer">−</button>
+                  <input type="number" value="${p.qty}" min="1" max="99" data-qty-input="${p.id}" aria-label="Quantité" />
+                  <button type="button" data-qty-plus="${p.id}" aria-label="Augmenter">+</button>
+                </div>
+              </div>
+              <div class="cart-row__total">${window.NACart.formatCAD(p.price * p.qty)}</div>
+              <button class="cart-row__remove" data-remove="${p.id}" aria-label="Retirer du panier">
+                <i data-lucide="x"></i>
+              </button>
+            </div>
+          `).join('')}
+        </div>
+
+        <aside class="cart-summary">
+          <h3>Récapitulatif</h3>
+          <div class="summary-row">
+            <span>Sous-total</span>
+            <span>${window.NACart.formatCAD(subtotal)}</span>
+          </div>
+          <div class="summary-row">
+            <span>Livraison</span>
+            <span>${shipping === 0 ? 'Gratuite' : window.NACart.formatCAD(shipping)}</span>
+          </div>
+          <div class="summary-row">
+            <span>TPS (5 %)</span>
+            <span>${window.NACart.formatCAD(tps)}</span>
+          </div>
+          <div class="summary-row">
+            <span>TVQ (9,975 %)</span>
+            <span>${window.NACart.formatCAD(tvq)}</span>
+          </div>
+          <div class="summary-row summary-row--total">
+            <span>Total</span>
+            <span>${window.NACart.formatCAD(total)}</span>
+          </div>
+          <button class="btn btn--primary btn--block btn--lg mt-32" id="checkout-btn">
+            Procéder au paiement
+            <i data-lucide="arrow-right"></i>
+          </button>
+          <p class="summary-note">
+            Livraison gratuite au Québec sur les commandes de 150 $ et plus. Taxes québécoises incluses dans le total. Démo — aucun paiement n'est traité.
+          </p>
+        </aside>
+      </div>
+    `;
+
+    // Bind events
+    document.querySelectorAll('[data-qty-minus]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.dataset.qtyMinus;
+        const item = window.NACart.getCart().find(x => x.id === id);
+        if (!item) return;
+        window.NACart.updateQty(id, item.qty - 1);
+        renderCart();
+      });
+    });
+    document.querySelectorAll('[data-qty-plus]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.dataset.qtyPlus;
+        const item = window.NACart.getCart().find(x => x.id === id);
+        if (!item) return;
+        window.NACart.updateQty(id, item.qty + 1);
+        renderCart();
+      });
+    });
+    document.querySelectorAll('[data-qty-input]').forEach(input => {
+      input.addEventListener('change', () => {
+        const id = input.dataset.qtyInput;
+        const v = parseInt(input.value, 10) || 1;
+        window.NACart.updateQty(id, v);
+        renderCart();
+      });
+    });
+    document.querySelectorAll('[data-remove]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        window.NACart.removeFromCart(btn.dataset.remove);
+        renderCart();
+      });
+    });
+
+    document.getElementById('checkout-btn').addEventListener('click', () => {
+      alert('Démo — paiement non implémenté');
+    });
+
+    if (window.lucide) window.lucide.createIcons();
+  }
+
+  document.addEventListener('DOMContentLoaded', renderCart);
+</script>
+
+</body>
+</html>
